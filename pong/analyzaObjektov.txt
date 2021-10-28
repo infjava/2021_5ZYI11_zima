@@ -1,0 +1,13 @@
+lopta
+padLavy
+padPravy
+scoreLave
+scorePrave
+stredovaCiara
+hraciaPlocha
+
+HraciaPlocha
+Pad
+Score
+Lopta
+StredovaCiara
