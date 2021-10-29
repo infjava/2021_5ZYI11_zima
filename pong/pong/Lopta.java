@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Lopta {
     private Kruh lopta;
     private int smerX;
@@ -5,19 +7,21 @@ public class Lopta {
     private int poziciaY;
     
     public Lopta() {
+        Random nahodneCisla = new Random();
+        
+        this.poziciaY = nahodneCisla.nextInt(291) + 5;
+        
         this.lopta = new Kruh();
         this.lopta.zmenPriemer(10);
         this.lopta.posunVodorovne(125);
-        this.lopta.posunZvisle(85);
+        this.lopta.posunZvisle(this.poziciaY - 65);
         this.lopta.zobraz();
-        
-        this.poziciaY = 150;
         
         this.smerX = 5;
         this.smerY = 5;
     }
     
-    public void tik() {
+    public void posun() {
         if (this.poziciaY == 5 || this.poziciaY == 295) {
             this.smerY = -this.smerY;
         }
