@@ -17,23 +17,16 @@ public class Lopta {
         this.lopta.posunZvisle(this.poziciaY - 65);
         this.lopta.zobraz();
         
-        switch (nahodneCisla.nextInt(4)) {
-            case 0:
-                this.smerX = 5;
-                this.smerY = 5;
-                break;
-            case 1:
-                this.smerX = -5;
-                this.smerY = -5;
-                break;
-            case 2:
-                this.smerX = 5;
-                this.smerY = -5;
-                break;
-            case 3:
-                this.smerX = -5;
-                this.smerY = 5;
-                break;
+        if (nahodneCisla.nextBoolean()) {
+            this.smerX = 5;
+        } else {
+            this.smerX = -5;
+        }
+        
+        if (nahodneCisla.nextBoolean()) {
+            this.smerY = 5;
+        } else {
+            this.smerY = -5;
         }
     }
     
