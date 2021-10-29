@@ -17,8 +17,24 @@ public class Lopta {
         this.lopta.posunZvisle(this.poziciaY - 65);
         this.lopta.zobraz();
         
-        this.smerX = 5;
-        this.smerY = 5;
+        switch (nahodneCisla.nextInt(4)) {
+            case 0:
+                this.smerX = 5;
+                this.smerY = 5;
+                break;
+            case 1:
+                this.smerX = -5;
+                this.smerY = -5;
+                break;
+            case 2:
+                this.smerX = 5;
+                this.smerY = -5;
+                break;
+            case 3:
+                this.smerX = -5;
+                this.smerY = 5;
+                break;
+        }
     }
     
     public void posun() {
