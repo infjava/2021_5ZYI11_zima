@@ -1,6 +1,7 @@
 public class Score {
     private SegmentovyDisplej jednotky;
     private SegmentovyDisplej desiatky;
+    private int aktualneScore;
     
     public Score(boolean jeLavy) {
         if (jeLavy) {
@@ -13,9 +14,14 @@ public class Score {
         
         this.desiatky.zobrazCislicu(0);
         this.jednotky.zobrazCislicu(0);
+        
+        this.aktualneScore = 0;
     }
     
     public void zvys() {
-        
+        //this.aktualneScore += 1;
+        this.aktualneScore++;
+        this.desiatky.zobrazCislicu(this.aktualneScore / 10);
+        this.jednotky.zobrazCislicu(this.aktualneScore % 10);
     }
 }
