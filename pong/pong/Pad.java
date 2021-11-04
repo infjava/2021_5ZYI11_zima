@@ -1,5 +1,6 @@
 public class Pad {
     private Obdlznik pad;
+    private int poziciaY;
     
     public Pad(boolean jeLavy) {
         this.pad = new Obdlznik();
@@ -11,13 +12,21 @@ public class Pad {
         }
         this.pad.posunZvisle(75);
         this.pad.zobraz();
+        
+        this.poziciaY = 150;
     }
     
     public void posunDole() {
-        this.pad.posunZvisle(5);
+        if (this.poziciaY < 275) {
+            this.pad.posunZvisle(5);
+            this.poziciaY += 5;
+        }
     }
     
     public void posunHore() {
-        this.pad.posunZvisle(-5);
+        if (this.poziciaY > 25) {
+            this.pad.posunZvisle(-5);
+            this.poziciaY -= 5;
+        }
     }
 }
