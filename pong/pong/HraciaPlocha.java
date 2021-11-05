@@ -9,5 +9,12 @@ public class HraciaPlocha {
         this.hracPravy = new Hrac(false);
         this.lopta = new Lopta();
         this.stredovaCiara = new StredovaCiara();
+        
+        Manazer manzer = new Manazer();
+        manzer.spravujObjekt(this);
+    }
+    
+    public void tik() {
+        this.lopta.posun();
     }
 }
