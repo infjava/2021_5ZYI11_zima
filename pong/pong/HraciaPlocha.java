@@ -17,4 +17,8 @@ public class HraciaPlocha {
     public void tik() {
         this.lopta.posun();
     }
+    
+    public void zrus() {
+        System.exit(0);
+    }
 }
