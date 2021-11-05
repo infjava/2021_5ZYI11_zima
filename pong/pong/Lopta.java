@@ -45,18 +45,10 @@ public class Lopta {
     }
     
     public boolean jeMimoObrazovkyVpravo() {
-        if (this.poziciaX > 305) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.poziciaX > 305;
     }
     
     public boolean jeMimoObrazovkyVlavo() {
-        if (this.poziciaX < -5) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.poziciaX < -5;
     }
 }
