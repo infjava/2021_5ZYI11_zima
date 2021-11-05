@@ -31,7 +31,7 @@ public class Lopta {
     }
     
     public void posun() {
-        if (this.poziciaY == 5 || this.poziciaY == 295) {
+        if (this.poziciaY <= 5 || this.poziciaY >= 295) {
             this.smerY = -this.smerY;
         }
         this.lopta.skry();
