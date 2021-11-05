@@ -24,6 +24,9 @@ public class HraciaPlocha {
             this.hracPravy.zvysScore();
             this.lopta = new Lopta();
         }
+        if (this.hracLavy.kolidujeS(this.lopta) || this.hracPravy.kolidujeS(this.lopta)) {
+            this.lopta.odrazSaOdPadu();
+        }
     }
     
     public void posunHore() {

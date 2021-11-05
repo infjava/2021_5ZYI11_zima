@@ -18,4 +18,8 @@ public class Hrac {
     public void zvysScore() {
         this.score.zvys();
     }
+    
+    public boolean kolidujeS(Lopta lopta) {
+        return this.pad.kolidujeS(lopta);
+    }
 }

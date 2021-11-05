@@ -51,4 +51,16 @@ public class Lopta {
     public boolean jeMimoObrazovkyVlavo() {
         return this.poziciaX < -5;
     }
+    
+    public void odrazSaOdPadu() {
+        this.smerX = -this.smerX;
+    }
+    
+    public int getPoziciaX() {
+        return this.poziciaX;
+    }
+    
+    public int getPoziciaY() {
+        return this.poziciaY;
+    }
 }
