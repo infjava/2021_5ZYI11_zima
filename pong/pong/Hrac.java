@@ -6,4 +6,12 @@ public class Hrac {
         this.pad = new Pad(jeLavy);
         this.score = new Score(jeLavy);
     }
+    
+    public void posunPadHore() {
+        this.pad.posunHore();
+    }
+    
+    public void posunPadDole() {
+        this.pad.posunDole();
+    }
 }

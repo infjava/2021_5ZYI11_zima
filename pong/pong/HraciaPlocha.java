@@ -18,6 +18,22 @@ public class HraciaPlocha {
         this.lopta.posun();
     }
     
+    public void posunHore() {
+        this.hracPravy.posunPadHore();
+    }
+    
+    public void posunDole() {
+        this.hracPravy.posunPadDole();
+    }
+    
+    public void posunVlavo() {
+        this.hracLavy.posunPadHore();
+    }
+    
+    public void posunVpravo() {
+        this.hracLavy.posunPadDole();
+    }
+    
     public void zrus() {
         System.exit(0);
     }
