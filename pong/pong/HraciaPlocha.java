@@ -16,6 +16,14 @@ public class HraciaPlocha {
     
     public void tik() {
         this.lopta.posun();
+        if (this.lopta.jeMimoObrazovkyVpravo()) {
+            this.hracLavy.zvysScore();
+            this.lopta = new Lopta();
+        }
+        if (this.lopta.jeMimoObrazovkyVlavo()) {
+            this.hracPravy.zvysScore();
+            this.lopta = new Lopta();
+        }
     }
     
     public void posunHore() {

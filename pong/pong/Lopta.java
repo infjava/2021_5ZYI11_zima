@@ -5,11 +5,13 @@ public class Lopta {
     private int smerX;
     private int smerY;
     private int poziciaY;
+    private int poziciaX;
     
     public Lopta() {
         Random nahodneCisla = new Random();
         
         this.poziciaY = nahodneCisla.nextInt(291) + 5;
+        this.poziciaX = 150;
         
         this.lopta = new Kruh();
         this.lopta.zmenPriemer(10);
@@ -38,6 +40,23 @@ public class Lopta {
         this.lopta.posunVodorovne(this.smerX);
         this.lopta.posunZvisle(this.smerY);
         this.lopta.zobraz();
+        this.poziciaX += this.smerX;
         this.poziciaY += this.smerY;
+    }
+    
+    public boolean jeMimoObrazovkyVpravo() {
+        if (this.poziciaX > 305) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean jeMimoObrazovkyVlavo() {
+        if (this.poziciaX < -5) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
