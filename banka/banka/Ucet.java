@@ -14,22 +14,25 @@ public class Ucet {
     }
     
     public void vloz(double suma) {
-        if (suma > 0) {
-            this.stavUctuVCentoch += suma * 100;
-        } else {
+        if (suma <= 0) {
             System.out.println("Nespravna suma vkladu");
+            return;
         }
+        
+        this.stavUctuVCentoch += suma * 100;
     }
     
     public void vyber(double suma) {
-        if (suma > 0) {
-            if (suma * 100 <= this.stavUctuVCentoch) {
-                this.stavUctuVCentoch -= suma * 100;
-            } else {
-                System.out.println("Telo penazi nemas");
-            }
-        } else {
+        if (suma <= 0) {
             System.out.println("Nespravna suma vyberu");
+            return;
         }
+        
+        if (suma * 100 > this.stavUctuVCentoch) {
+            System.out.println("Telo penazi nemas");
+            return;
+        }
+        
+        this.stavUctuVCentoch -= suma * 100;
     }
 }
