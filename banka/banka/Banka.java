@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.math.BigInteger;
 
 public class Banka {
     private int kodBanky;
@@ -12,9 +13,21 @@ public class Banka {
         
         long cisloUctu = Math.abs(nahodneCisla.nextLong()) % 10000000000L;
         
+        BigInteger ibanPreVypocet = new BigInteger(
+            String.format(
+                "%04d000000%010d282000",
+                this.kodBanky,
+                cisloUctu
+            )
+        );
+        
+        int kontrolnaCislica = 98 - ibanPreVypocet
+            .mod(new BigInteger("97"))
+            .intValue();
+        
         String iban = String.format(
             "SK%02d%04d000000%010d",
-            14,
+            kontrolnaCislica,
             this.kodBanky,
             cisloUctu
         );
