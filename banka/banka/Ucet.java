@@ -35,4 +35,8 @@ public class Ucet {
         
         this.stavUctuVCentoch -= suma * 100;
     }
+    
+    public String getIban() {
+        return this.cisloUctu;
+    }
 }

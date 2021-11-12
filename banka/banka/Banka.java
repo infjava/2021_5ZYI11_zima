@@ -1,11 +1,14 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.math.BigInteger;
 
 public class Banka {
     private int kodBanky;
+    private ArrayList<Ucet> ucty;
     
     public Banka(int kodBanky) {
         this.kodBanky = kodBanky;
+        this.ucty = new ArrayList<Ucet>();
     }
     
     public Ucet zalozUcet(String menoVlastnika) {
@@ -31,6 +34,18 @@ public class Banka {
             this.kodBanky,
             cisloUctu
         );
-        return new Ucet(iban, menoVlastnika);
+        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika);
+        this.ucty.add(vytvaranyUcet);
+        return vytvaranyUcet;
+    }
+    
+    public Ucet getUcet(String iban) {
+        for (Ucet aktualny : this.ucty) {
+            if (aktualny.getIban().equals(iban)) {
+                return aktualny;
+            }
+        }
+        
+        return null;
     }
 }
