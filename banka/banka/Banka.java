@@ -32,6 +32,10 @@ public class Banka {
             }
         }
         
+        if (urokVPercentach == 0) {
+            return null;
+        }
+        
         Random nahodneCisla = new Random();
         
         long cisloUctu = Math.abs(nahodneCisla.nextLong()) % 10000000000L;
