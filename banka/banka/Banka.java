@@ -12,7 +12,9 @@ public class Banka {
     }
     
     public void zaratajUroky() {
-        
+        for (Ucet ucet : this.ucty) {
+            ucet.pripocitajUroky();
+        }
     }
     
     public Ucet zalozUcet(String menoVlastnika, double urokVPercentach) {

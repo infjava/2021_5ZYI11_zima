@@ -15,6 +15,10 @@ public class Ucet {
         return this.stavUctuVCentoch / 100.0;
     }
     
+    public void pripocitajUroky() {
+        this.stavUctuVCentoch += this.stavUctuVCentoch * this.urokVPercentach / 100;
+    }
+    
     public void vloz(double suma) {
         if (suma <= 0) {
             System.out.println("Nespravna suma vkladu");
