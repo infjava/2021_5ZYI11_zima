@@ -2,11 +2,13 @@ public class Ucet {
     private String menoVlastnika;
     private String cisloUctu;
     private long stavUctuVCentoch;
+    private double urokVPercentach;
     
-    public Ucet(String cisloUctu, String menoVlastnika) {
+    public Ucet(String cisloUctu, String menoVlastnika, double urokVPercentach) {
         this.stavUctuVCentoch = 0;
         this.menoVlastnika = menoVlastnika;
         this.cisloUctu = cisloUctu;
+        this.urokVPercentach = urokVPercentach;
     }
     
     public double getStav() {

@@ -11,7 +11,11 @@ public class Banka {
         this.ucty = new ArrayList<Ucet>();
     }
     
-    public Ucet zalozUcet(String menoVlastnika) {
+    public void zaratajUroky() {
+        
+    }
+    
+    public Ucet zalozUcet(String menoVlastnika, double urokVPercentach) {
         Random nahodneCisla = new Random();
         
         long cisloUctu = Math.abs(nahodneCisla.nextLong()) % 10000000000L;
@@ -34,7 +38,7 @@ public class Banka {
             this.kodBanky,
             cisloUctu
         );
-        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika);
+        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika, urokVPercentach);
         this.ucty.add(vytvaranyUcet);
         return vytvaranyUcet;
     }
