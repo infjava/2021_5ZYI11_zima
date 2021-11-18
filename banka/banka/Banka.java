@@ -25,14 +25,16 @@ public class Banka {
     
     public Ucet zalozUcet(String menoVlastnika, String typUctu) {
         double urokVPercentach = 0;
+        boolean typUctuNajdeny = false;
         
         for (TypUctu typ : this.typyUctu) {
             if (typUctu.equals(typ.getNazov())) {
                 urokVPercentach = typ.getUrokVPercentach();
+                typUctuNajdeny = true;
             }
         }
         
-        if (urokVPercentach == 0) {
+        if (!typUctuNajdeny) {
             return null;
         }
         
