@@ -5,10 +5,12 @@ import java.math.BigInteger;
 public class Banka {
     private int kodBanky;
     private ArrayList<Ucet> ucty;
+    private ArrayList<TypUctu> typyUctu;
     
     public Banka(int kodBanky) {
         this.kodBanky = kodBanky;
         this.ucty = new ArrayList<Ucet>();
+        this.typyUctu = new ArrayList<TypUctu>();
     }
     
     public void zaratajUroky() {
@@ -17,7 +19,19 @@ public class Banka {
         }
     }
     
-    public Ucet zalozUcet(String menoVlastnika, double urokVPercentach) {
+    public void vytvorTypUctu(String nazov, double urokVPercentach) {
+        this.typyUctu.add(new TypUctu(nazov, urokVPercentach));
+    }
+    
+    public Ucet zalozUcet(String menoVlastnika, String typUctu) {
+        double urokVPercentach = 0;
+        
+        for (TypUctu typ : this.typyUctu) {
+            if (typUctu.equals(typ.getNazov())) {
+                urokVPercentach = typ.getUrokVPercentach();
+            }
+        }
+        
         Random nahodneCisla = new Random();
         
         long cisloUctu = Math.abs(nahodneCisla.nextLong()) % 10000000000L;
