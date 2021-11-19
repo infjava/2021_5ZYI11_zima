@@ -2,13 +2,13 @@ public class Ucet {
     private String menoVlastnika;
     private String cisloUctu;
     private long stavUctuVCentoch;
-    private double urokVPercentach;
+    private TypUctu typUctu;
     
-    public Ucet(String cisloUctu, String menoVlastnika, double urokVPercentach) {
+    public Ucet(String cisloUctu, String menoVlastnika, TypUctu typUctu) {
         this.stavUctuVCentoch = 0;
         this.menoVlastnika = menoVlastnika;
         this.cisloUctu = cisloUctu;
-        this.urokVPercentach = urokVPercentach;
+        this.typUctu = typUctu;
     }
     
     public double getStav() {
@@ -16,7 +16,7 @@ public class Ucet {
     }
     
     public void pripocitajUroky() {
-        this.stavUctuVCentoch += this.stavUctuVCentoch * this.urokVPercentach / 100;
+        this.stavUctuVCentoch += this.stavUctuVCentoch * this.typUctu.getUrokVPercentach() / 100;
     }
     
     public void vloz(double suma) {
@@ -26,6 +26,7 @@ public class Ucet {
         }
         
         this.stavUctuVCentoch += suma * 100;
+        this.stavUctuVCentoch -= this.typUctu.getPoplatokZaVklad() * 100;
     }
     
     public void vyber(double suma) {
@@ -40,6 +41,7 @@ public class Ucet {
         }
         
         this.stavUctuVCentoch -= suma * 100;
+        this.stavUctuVCentoch -= this.typUctu.getPoplatokZaVyber() * 100;
     }
     
     public String getIban() {

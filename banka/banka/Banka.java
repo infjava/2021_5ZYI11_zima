@@ -19,22 +19,20 @@ public class Banka {
         }
     }
     
-    public void vytvorTypUctu(String nazov, double urokVPercentach) {
-        this.typyUctu.add(new TypUctu(nazov, urokVPercentach));
+    public void vytvorTypUctu(String nazov, double urokVPercentach, double poplatokZaVklad, double poplatokZaVyber) {
+        this.typyUctu.add(new TypUctu(nazov, urokVPercentach, poplatokZaVklad, poplatokZaVyber));
     }
     
     public Ucet zalozUcet(String menoVlastnika, String typUctu) {
-        double urokVPercentach = 0;
-        boolean typUctuNajdeny = false;
+        TypUctu pozadovanyTypUctu = null;
         
         for (TypUctu typ : this.typyUctu) {
             if (typUctu.equals(typ.getNazov())) {
-                urokVPercentach = typ.getUrokVPercentach();
-                typUctuNajdeny = true;
+                pozadovanyTypUctu = typ;
             }
         }
         
-        if (!typUctuNajdeny) {
+        if (pozadovanyTypUctu == null) {
             return null;
         }
         
@@ -60,7 +58,7 @@ public class Banka {
             this.kodBanky,
             cisloUctu
         );
-        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika, urokVPercentach);
+        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika, pozadovanyTypUctu);
         this.ucty.add(vytvaranyUcet);
         return vytvaranyUcet;
     }
