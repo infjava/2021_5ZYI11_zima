@@ -58,7 +58,7 @@ public class Banka {
             this.kodBanky,
             cisloUctu
         );
-        Ucet vytvaranyUcet = new Ucet(iban, menoVlastnika, pozadovanyTypUctu);
+        Ucet vytvaranyUcet = new Ucet(this, iban, menoVlastnika, pozadovanyTypUctu);
         this.ucty.add(vytvaranyUcet);
         return vytvaranyUcet;
     }

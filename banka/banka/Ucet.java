@@ -3,12 +3,14 @@ public class Ucet {
     private String cisloUctu;
     private long stavUctuVCentoch;
     private TypUctu typUctu;
+    private Banka banka;
     
-    public Ucet(String cisloUctu, String menoVlastnika, TypUctu typUctu) {
+    public Ucet(Banka banka, String cisloUctu, String menoVlastnika, TypUctu typUctu) {
         this.stavUctuVCentoch = 0;
         this.menoVlastnika = menoVlastnika;
         this.cisloUctu = cisloUctu;
         this.typUctu = typUctu;
+        this.banka = banka;
     }
     
     public double getStav() {
@@ -52,5 +54,21 @@ public class Ucet {
     
     public String getIban() {
         return this.cisloUctu;
+    }
+    
+    public void preved(String iban, double suma) {
+        if (suma <= 0) {
+            System.out.println("Nespravna suma vyberu");
+            return;
+        }
+        
+        if (suma * 100 > this.stavUctuVCentoch) {
+            System.out.println("Telo penazi nemas");
+            return;
+        }
+        
+        Ucet ciel = this.banka.getUcet(iban);
+        this.stavUctuVCentoch -= suma * 100;
+        ciel.stavUctuVCentoch += suma * 100;
     }
 }
