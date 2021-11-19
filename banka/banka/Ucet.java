@@ -25,6 +25,11 @@ public class Ucet {
             return;
         }
         
+        if (suma * 100 + this.stavUctuVCentoch < this.typUctu.getPoplatokZaVklad() * 100) {
+            System.out.println("Nemas na poplatok za vklad");
+            return;
+        }
+        
         this.stavUctuVCentoch += suma * 100;
         this.stavUctuVCentoch -= this.typUctu.getPoplatokZaVklad() * 100;
     }
@@ -35,13 +40,14 @@ public class Ucet {
             return;
         }
         
-        if (suma * 100 > this.stavUctuVCentoch) {
+        double vybernaSumaVCentoch = suma * 100 + this.typUctu.getPoplatokZaVyber() * 100;
+        
+        if (vybernaSumaVCentoch > this.stavUctuVCentoch) {
             System.out.println("Telo penazi nemas");
             return;
         }
         
-        this.stavUctuVCentoch -= suma * 100;
-        this.stavUctuVCentoch -= this.typUctu.getPoplatokZaVyber() * 100;
+        this.stavUctuVCentoch -= vybernaSumaVCentoch;
     }
     
     public String getIban() {
