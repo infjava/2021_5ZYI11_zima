@@ -7,14 +7,8 @@ public class Sachovnica {
                 policko.posunZvisle(-50 + y*20);
                 policko.posunVodorovne(-60 + x*20);
                 policko.zmenFarbu("black");
-                if (vyska % 2 == 0) {
-                    if (x % 2 != y % 2) {
-                        policko.zobraz();
-                    }
-                } else {
-                    if (x % 2 == y % 2) {
-                        policko.zobraz();
-                    }
+                if (x % 2 != (vyska - y) % 2) {
+                    policko.zobraz();
                 }
             }
         }
