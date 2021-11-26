@@ -6,8 +6,12 @@ public class Sachovnica {
     private ArrayList<Stvorec> policka;
     private ArrayList<Kamen> kamene;
     
+    private boolean jeZobrazena;
+    
     public Sachovnica(int sirka, int vyska) {
         this.sirka = sirka;
+        
+        this.jeZobrazena = false;
         
         this.policka = new ArrayList<Stvorec>();
         this.kamene = new ArrayList<Kamen>();
@@ -33,6 +37,7 @@ public class Sachovnica {
         for (Kamen kamen : this.kamene) {
             kamen.zobraz();
         }
+        this.jeZobrazena = true;
     }
     
     public void skry() {
@@ -42,11 +47,15 @@ public class Sachovnica {
         for (Stvorec policko : this.policka) {
             policko.skry();
         }
+        this.jeZobrazena = false;
     }
     
     public Kamen polozKamen() {
         Kamen kamen = new Kamen(this);
         this.kamene.add(kamen);
+        if (this.jeZobrazena) {
+            kamen.zobraz();
+        }
         return kamen;
     }
     
