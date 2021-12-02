@@ -3,6 +3,7 @@ public class Nim {
     private Sachovnica sachovnica;
     private String[] hraci;
     private int indexHracaNaTahu;
+    private String vyherca;
     
     public Nim(int sirka, int vyska, String prvyHrac, String druhyHrac) {
         this.sachovnica = new Sachovnica(sirka, vyska);
@@ -11,10 +12,16 @@ public class Nim {
         
         this.hraci = new String[] { prvyHrac, druhyHrac };
         this.indexHracaNaTahu = 0;
+        
+        this.vyherca = null;
     }
     
     public String getHracNaTahu() {
         return this.hraci[this.indexHracaNaTahu];
+    }
+    
+    public String getVyherca() {
+        return this.vyherca;
     }
     
     public void posunVlavo(int oKolko) {
@@ -32,6 +39,10 @@ public class Nim {
         }
         
         this.kamen.posunSa(novyRiadok, novyStlpec);
+        
+        if (novyRiadok == 1 && novyStlpec == 1) {
+            this.vyherca = this.getHracNaTahu();
+        }
         
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
     }
@@ -51,6 +62,10 @@ public class Nim {
         }
         
         this.kamen.posunSa(novyRiadok, novyStlpec);
+        
+        if (novyRiadok == 1 && novyStlpec == 1) {
+            this.vyherca = this.getHracNaTahu();
+        }
         
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
     }
