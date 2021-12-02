@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Sachovnica {
+    private int vyska;
     private int sirka;
     
     private ArrayList<Stvorec> policka;
@@ -9,6 +10,7 @@ public class Sachovnica {
     private boolean jeZobrazena;
     
     public Sachovnica(int sirka, int vyska) {
+        this.vyska = vyska;
         this.sirka = sirka;
         
         this.jeZobrazena = false;
@@ -61,5 +63,9 @@ public class Sachovnica {
     
     public int getSirka() {
         return this.sirka;
+    }
+    
+    public int getVyska() {
+        return this.vyska;
     }
 }
