@@ -9,10 +9,36 @@ public class Nim {
     }
     
     public void posunVlavo(int oKolko) {
+        if (oKolko <= 0) {
+            System.out.println("Nespravna hodnota tahu");
+            return;
+        }
         
+        int novyRiadok = this.kamen.getRiadok();
+        int novyStlpec = this.kamen.getStlpec() - oKolko;
+        
+        if (novyStlpec <= 0) {
+            System.out.println("Nespravna hodnota tahu");
+            return;
+        }
+        
+        this.kamen.posunSa(novyRiadok, novyStlpec);
     }
     
     public void posunDole(int oKolko) {
+        if (oKolko <= 0) {
+            System.out.println("Nespravna hodnota tahu");
+            return;
+        }
         
+        int novyRiadok = this.kamen.getRiadok() - oKolko;
+        int novyStlpec = this.kamen.getStlpec();
+        
+        if (novyRiadok <= 0) {
+            System.out.println("Nespravna hodnota tahu");
+            return;
+        }
+        
+        this.kamen.posunSa(novyRiadok, novyStlpec);
     }
 }

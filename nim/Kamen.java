@@ -30,4 +30,12 @@ public class Kamen {
         this.poziciaStlpec = stlpec;
         this.poziciaRiadok = riadok;
     }
+    
+    public int getRiadok() {
+        return this.poziciaRiadok;
+    }
+    
+    public int getStlpec() {
+        return this.poziciaStlpec;
+    }
 }
