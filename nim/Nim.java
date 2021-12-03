@@ -25,38 +25,23 @@ public class Nim {
     }
     
     public void posunVlavo(int oKolko) {
-        if (oKolko <= 0) {
-            System.out.println("Nespravna hodnota tahu");
-            return;
-        }
-        
-        int novyRiadok = this.kamen.getRiadok();
-        int novyStlpec = this.kamen.getStlpec() - oKolko;
-        
-        if (novyStlpec <= 0) {
-            System.out.println("Nespravna hodnota tahu");
-            return;
-        }
-        
-        this.kamen.posunSa(novyRiadok, novyStlpec);
-        
-        if (novyRiadok == 1 && novyStlpec == 1) {
-            this.vyherca = this.getHracNaTahu();
-        }
-        
-        this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
+        this.vykonajPosun(0, oKolko);
     }
     
     public void posunDole(int oKolko) {
-        if (oKolko <= 0) {
+        this.vykonajPosun(oKolko, 0);
+    }
+    
+    private void vykonajPosun(int oKolkoRiadkov, int oKolkoStlpcov) {
+        if (oKolkoRiadkov <= 0 && oKolkoStlpcov <= 0) {
             System.out.println("Nespravna hodnota tahu");
             return;
         }
         
-        int novyRiadok = this.kamen.getRiadok() - oKolko;
-        int novyStlpec = this.kamen.getStlpec();
+        int novyRiadok = this.kamen.getRiadok() - oKolkoRiadkov;
+        int novyStlpec = this.kamen.getStlpec() - oKolkoStlpcov;
         
-        if (novyRiadok <= 0) {
+        if (novyStlpec <= 0 || novyRiadok <= 0) {
             System.out.println("Nespravna hodnota tahu");
             return;
         }
