@@ -69,4 +69,12 @@ public class Nim {
         
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
     }
+    
+    public int getKamenRiadok() {
+        return this.kamen.getRiadok();
+    }
+    
+    public int getKamenStlpec() {
+        return this.kamen.getStlpec();
+    }
 }
