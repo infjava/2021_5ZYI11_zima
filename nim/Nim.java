@@ -53,6 +53,10 @@ public class Nim {
         }
         
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
+        
+        if (this.getHracNaTahu().equals("PC")) {
+            // vykonaj tah PC
+        }
     }
     
     public int getKamenRiadok() {
