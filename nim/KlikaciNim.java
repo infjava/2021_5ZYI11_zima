@@ -20,12 +20,14 @@ public class KlikaciNim {
         int riadok = this.vyska - y / 20;
         int stlpec = x / 20 + 1;
         if (riadok >= 1 && riadok <= this.vyska && stlpec >= 1 && stlpec <= this.sirka) {
+            int oKolkoStlpcov = this.nim.getKamenStlpec() - stlpec;
+            int oKolkoRiadkov = this.nim.getKamenRiadok() - riadok;
             if (riadok == this.nim.getKamenRiadok()) {
-                int oKolko = this.nim.getKamenStlpec() - stlpec;
-                this.nim.posunVlavo(oKolko);
+                this.nim.posunVlavo(oKolkoStlpcov);
             } else if (stlpec == this.nim.getKamenStlpec()) {
-                int oKolko = this.nim.getKamenRiadok() - riadok;
-                this.nim.posunDole(oKolko);
+                this.nim.posunDole(oKolkoRiadkov);
+            } else if (oKolkoRiadkov == oKolkoStlpcov) {
+                this.nim.posunSikmo(oKolkoRiadkov);
             } else {
                 System.out.println("Chybny tah");
             }

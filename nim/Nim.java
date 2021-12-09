@@ -34,6 +34,10 @@ public class Nim {
         this.vykonajPosun(oKolko, 0);
     }
     
+    public void posunSikmo(int oKolko) {
+        this.vykonajPosun(oKolko, oKolko);
+    }
+    
     private void vykonajPosun(int oKolkoRiadkov, int oKolkoStlpcov) {
         if (oKolkoRiadkov <= 0 && oKolkoStlpcov <= 0) {
             System.out.println("Nespravna hodnota tahu");
