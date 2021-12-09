@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Nim {
     private Kamen kamen;
     private Sachovnica sachovnica;
@@ -60,7 +62,18 @@ public class Nim {
             } else if (novyStlpec > novyRiadok) {
                 this.posunVlavo(novyStlpec - novyRiadok);
             } else {
-                
+                Random nahodneCisla = new Random();
+                int oKolko;
+                if (novyRiadok == 2 || novyRiadok == 3) {
+                    oKolko = 1;
+                } else {
+                    oKolko = nahodneCisla.nextInt(novyRiadok - 2) + 1;
+                }
+                if (nahodneCisla.nextBoolean()) {
+                    this.posunDole(oKolko);
+                } else {
+                    this.posunVlavo(oKolko);
+                }
             }
         }
     }
