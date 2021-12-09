@@ -55,7 +55,13 @@ public class Nim {
         this.indexHracaNaTahu = (this.indexHracaNaTahu + 1) % this.hraci.length;
         
         if (this.getHracNaTahu().equals("PC")) {
-            // vykonaj tah PC
+            if (novyStlpec < novyRiadok) {
+                this.posunDole(novyRiadok - novyStlpec);
+            } else if (novyStlpec > novyRiadok) {
+                this.posunVlavo(novyStlpec - novyRiadok);
+            } else {
+                
+            }
         }
     }
     
