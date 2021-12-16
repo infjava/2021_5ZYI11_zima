@@ -42,6 +42,14 @@ public class Tetromino {
     }
     
     public void otoc() {
+        if (this.poziciaX > Displej.SIRKA - tvar.length) {
+            return;
+        }
+        
+        if (this.poziciaY > Displej.VYSKA - tvar[0].length) {
+            return;
+        }
+        
         this.skry();
         this.tvar = this.zrkadli(this.transponuj(this.tvar));
         this.nakresli();
