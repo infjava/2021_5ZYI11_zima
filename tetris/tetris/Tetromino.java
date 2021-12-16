@@ -12,12 +12,7 @@ public class Tetromino {
     }
     
     public Tetromino(TvarTetromina tvar) {
-        boolean[][] tvarPole = tvar.getTvar();
-        this.poziciaX = (Displej.SIRKA - tvarPole[0].length) / 2;
-        this.poziciaY = 0;
-        this.tvar = tvarPole;
-        
-        this.nakresli();
+        this(tvar.getTvar());
     }
     
     public void posunDole() {
