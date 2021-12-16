@@ -11,6 +11,15 @@ public class Tetromino {
         this.nakresli();
     }
     
+    public Tetromino(TvarTetromina tvar) {
+        boolean[][] tvarPole = tvar.getTvar();
+        this.poziciaX = (Displej.SIRKA - tvarPole[0].length) / 2;
+        this.poziciaY = 0;
+        this.tvar = tvarPole;
+        
+        this.nakresli();
+    }
+    
     public void posunDole() {
         if (this.poziciaY >= Displej.VYSKA - tvar.length) {
             return;
