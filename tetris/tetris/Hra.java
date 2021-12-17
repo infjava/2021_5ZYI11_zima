@@ -1,8 +1,10 @@
 public class Hra {
     private Tetromino padajuce;
+    private PadnuteKocky padnute;
     
     public Hra() {
         this.padajuce = new Tetromino(TvarTetromina.getNahodne());
+        this.padnute = new PadnuteKocky();
         new Manazer().spravujObjekt(this);
     }
     
@@ -20,9 +22,15 @@ public class Hra {
     
     public void tik() {
         if (this.padajuce.getJeUplneDole()) {
+            this.padnute.pridajTetromino(this.padajuce);
             this.padajuce = new Tetromino(TvarTetromina.getNahodne());
         } else {
-            this.padajuce.posunDole();
+            if (this.padnute.jeKolizia(this.padajuce)) {
+                this.padnute.pridajTetromino(this.padajuce);
+                this.padajuce = new Tetromino(TvarTetromina.getNahodne());
+            } else {
+                this.padajuce.posunDole();
+            }
         }
     }
     

@@ -63,6 +63,23 @@ public class Tetromino {
         return this.poziciaY >= Displej.VYSKA - tvar.length;
     }
     
+    public boolean svietiNaPozicii(int x, int y) {
+        if (x < this.poziciaX) {
+            return false;
+        }
+        if (y < this.poziciaY) {
+            return false;
+        }
+        if (x >= this.poziciaX + this.tvar[0].length) {
+            return false;
+        }
+        if (y >= this.poziciaY + this.tvar.length) {
+            return false;
+        }
+        
+        return this.tvar[y - this.poziciaY][x - this.poziciaX];
+    }
+    
     private boolean[][] transponuj(boolean[][] matica) {
         int povodnaVyska = matica.length;
         int povodnaSirka = matica[0].length;
