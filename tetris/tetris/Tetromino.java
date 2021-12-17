@@ -59,6 +59,10 @@ public class Tetromino {
         this.nakresli();
     }
     
+    public boolean getJeUplneDole() {
+        return this.poziciaY >= Displej.VYSKA - tvar.length;
+    }
+    
     private boolean[][] transponuj(boolean[][] matica) {
         int povodnaVyska = matica.length;
         int povodnaSirka = matica[0].length;
